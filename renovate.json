@@ -1,0 +1,11 @@
+{
+  "enabledManagers": ["custom.regex"],
+  "customManagers": [{
+    "customType": "regex",
+    "fileMatch": ["package.json"],
+    "datasourceTemplate": "npm",
+    "depNameTemplate": "yarn",
+    "matchStrings": ["\"versions\": [\\n\\s*{\"version\": \"(?<currentValue>.*)\"},\\n\\s*{\"version\": \".*\"}\\n\\s*]"],
+    "autoReplaceStringTemplate": "\"versions\": [\\n    {\"version\": \"{{{newValue}}}\"},\\n    {\"version\": \"{{{currentValue}}}\"}\\n]",
+  }]
+}
